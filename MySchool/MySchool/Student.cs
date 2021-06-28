@@ -8,19 +8,28 @@ namespace MySchool
 {
     public class Student
     {
-        private string _firstName { get; set; }
-        private string _lastName;
-        private long _id;
-        private DateTime _birth;
-        private FamilyStatus _familyStatus;
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public long id { get; set; }
+        public DateTime birth { get; set; }
+        public FamilyStatus familyStatus { get; set; }
 
-        public Student(string firstName,string lastName,long id,DateTime birth,FamilyStatus familyStatus)
+        public Student(string firstName, string lastName, long id, DateTime birth, FamilyStatus familyStatus)
         {
-            _firstName = firstName;
-            _lastName = lastName;
-            _id = id;
-            _birth = birth;
-            _familyStatus = familyStatus;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.id = id;
+            this.birth = birth;
+            this.familyStatus = familyStatus;
+        }
+
+        public Student(Student student)
+        {
+            firstName = student.firstName;
+            lastName = student.lastName;
+            id = student.id;
+            birth = student.birth;
+            familyStatus = student.familyStatus;
         }
     }
 }

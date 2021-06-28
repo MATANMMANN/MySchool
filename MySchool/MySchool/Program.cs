@@ -10,7 +10,8 @@ namespace MySchool
     {
         public static void Main(string[] args)
         {
-
+            Student s = new Student("g", "d", 13, new DateTime(), FamilyStatus.bachelor);
+            Console.WriteLine(s.firstName);
         }
     }
 }
