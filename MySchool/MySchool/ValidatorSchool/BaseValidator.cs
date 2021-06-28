@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MySchool
 {
-    public class Validator
+    public class BaseValidator
     {
-        Parser parser = new Parser();
+        public  Parser parser = new Parser();
         public bool CheckIfOperationChooseIsValid(string userInput,int numberOfOperations)
         {
             try

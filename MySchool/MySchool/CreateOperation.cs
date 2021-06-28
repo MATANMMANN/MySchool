@@ -9,10 +9,13 @@ namespace MySchool
     public class CreateOperation
     {
         InputOutput InputOutput = new InputOutput();
-        Validator validator = new Validator();
+        BaseValidator validator = new BaseValidator();
+        List<IOperation> operations;
         public void Start()
         {
+            operations = CreateListOfOperations();
             ChooseOperation(1);
+            operations[0].DoOperation(); //need to get down after finish
         }
 
         private void ChooseOperation(int numberOfOperations)
@@ -24,12 +27,19 @@ namespace MySchool
                 InputOutput.PrintToScreen("1 - Create new Student");
                 operationChoise = InputOutput.GetParmeter();
             } while (!validator.CheckIfOperationChooseIsValid(operationChoise, numberOfOperations));
-            
 
 
         }
 
-       
+        private List<IOperation> CreateListOfOperations()
+        {
+            List<IOperation> operations = new List<IOperation>();
+            operations.Add(new AddStudent());
+
+            return operations;
+        }
+
+
 
 
     }

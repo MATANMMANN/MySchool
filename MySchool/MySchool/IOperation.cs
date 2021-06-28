@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace MySchool
 {
-    class Program
+    interface IOperation
     {
-        public static void Main(string[] args)
+        void DoOperation();
+        string nameOfOperation
         {
-            
-            CreateOperation create = new CreateOperation();
-            create.Start();
+            get;
         }
     }
 }
