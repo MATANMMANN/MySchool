@@ -34,6 +34,10 @@ namespace MySchool
             firstName = getParm("first name", validator.CheckName);
             lastName = getParm("last name", validator.CheckName);
             id = getParm("id", validator.CheckId);
+            year = getParm("year of birth", validator.CheckYear);
+            month = getParm("month of birth", validator.CheckMonth);
+            day = getParm("day of birth", validator.CheckDay);
+            familyStatus = getParm("family status(bachelor,divorcee,married,widower)",validator.CheckFamilyStatus);
             return null;
         }
 
@@ -42,7 +46,7 @@ namespace MySchool
             string parameter=null;
             do
             {
-                InputOutput.PrintToScreen(String.Format("Please enter your {0}",paramName));
+                InputOutput.PrintToScreen(String.Format("Please enter your {0}:",paramName));
                 parameter = InputOutput.GetParmeter();
 
             } while (!validator(parameter));
