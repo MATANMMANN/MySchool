@@ -20,5 +20,27 @@ namespace MySchool.Validator
             return true;
 
         }
+        public bool CheckId(string id)
+        {
+            if (!IsDigitsOnly(id))
+            {
+                return false;
+            }
+            else if (id.Length != 7)
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
     }
 }

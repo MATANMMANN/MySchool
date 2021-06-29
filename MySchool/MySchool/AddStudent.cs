@@ -30,13 +30,24 @@ namespace MySchool
             string month;
             string day;
             string familyStatus;
+
+            firstName = getParm("first name", validator.CheckName);
+            lastName = getParm("last name", validator.CheckName);
+            id = getParm("id", validator.CheckId);
+            return null;
+        }
+
+        private string getParm(string paramName,Func<string,bool> validator)
+        {
+            string parameter=null;
             do
             {
-                InputOutput.PrintToScreen("Please enter your first name: ");
-                firstName = InputOutput.GetParmeter();
+                InputOutput.PrintToScreen(String.Format("Please enter your {0}",paramName));
+                parameter = InputOutput.GetParmeter();
 
-            } while (!validator.CheckName(firstName));
-            return null;
-}
+            } while (!validator(parameter));
+
+            return parameter;
+        }
     }
 }
