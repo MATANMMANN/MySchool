@@ -14,7 +14,7 @@ namespace MySchool
         public void Start()
         {
             operations = CreateListOfOperations();
-            ChooseOperation(1);
+            ChooseOperation(1); // need to be in config.json of project
             operations[0].DoOperation(); //need to get down after finish
         }
 
