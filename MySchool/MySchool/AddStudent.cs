@@ -2,6 +2,8 @@
 using MySchool.Validator;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,14 +65,27 @@ namespace MySchool
 
             return parameter;
         }
+
         private void EnterStudentIntoDB(Student student)
         {
-            string cs = @"URI=file:C:\Code\MySchool\MySchool\MySchool\Students.db";
+            using (var con = new SQLiteConnection(@"URI=file: C:\Code\MySchool\MySchool\MySchool\Students.db"))
+            {
+                string query = String.Format("INSERT INTO School_Students (FirstName, LastName, Id, BirthDate, FamilyStatus)VALUES('{0}', '{1}', '{2}', '{3}-{4}-{5}', '{6}');",student.firstName,student.lastName,student.id,student.birth.Day,student.birth.Month,student.birth.Year,student.familyStatus);
+                
+                using (var cmd = new SQLiteCommand(query, con)) 
+                {
+                    cmd.Connection.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            /*string cs = @"URI=file:C:\Code\MySchool\MySchool\MySchool\Students.db";
             var con = new SqliteConnection(cs);
             con.Open();
             string stm = "INSERT INTO School_Students (FirstName, LastName, Id, BirthDate, FamilyStatus)VALUES('Eden', 'Gabriel', '208463152', '22-01-98', 'bachelor');";
             var cmd = new SqliteCommand(stm, con);
             cmd.ExecuteNonQuery();
+            */
         }
     }
 }
