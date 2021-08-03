@@ -79,13 +79,6 @@ namespace MySchool
                     con.Close();
                 }
             }
-            /*string cs = @"URI=file:C:\Code\MySchool\MySchool\MySchool\Students.db";
-            var con = new SqliteConnection(cs);
-            con.Open();
-            string stm = "INSERT INTO School_Students (FirstName, LastName, Id, BirthDate, FamilyStatus)VALUES('Eden', 'Gabriel', '208463152', '22-01-98', 'bachelor');";
-            var cmd = new SqliteCommand(stm, con);
-            cmd.ExecuteNonQuery();
-            */
         }
     }
 }
